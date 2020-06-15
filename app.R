@@ -13,6 +13,15 @@ createRandomDataset <- function() {
     return(x)
 }
 
+extract <- function(text) {
+    text <- gsub(" ", "", text)
+    split <- strsplit(text, ",", fixed = FALSE)[[1]]
+    as.numeric(split)
+}
+
+
+
+
 # Define UI for application that draws a histogram
 ui <- fluidPage( 
     theme = shinytheme("cosmo"),
@@ -23,7 +32,7 @@ ui <- fluidPage(
     # Navbar Panel
     navbarPage(
         "Models",
-        tabPanel("Machine Learning Predictor",
+        tabPanel("Linear Regression Predictor",
             # Show a plot of the generated distribution
             sidebarPanel(
                 tags$h5("Input:"),
@@ -35,26 +44,32 @@ ui <- fluidPage(
             ),
             mainPanel(
                 h5("The result is:"),
+                plotOutput("plot"),
                 textOutput("txtout")
             )
         ),
-        tabPanel("Literature", "This panel is blank"),
-        tabPanel("Literature and Expert", "This panel is blank")
+        tabPanel("Machine Learning Predictor", "In development"),
+        tabPanel("Other analyses Predictor", "In development")
        
         )
  )
-    
+
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
-
-    output$txtout <- renderText({
-        switch(input$num3, #does something based on input from UI, and sends txtout back to the UI
-               "A" = 5,
-               "B" = 3,
-               "C" = 4
-               )
+    
+    output$plot <- renderPlot({
+        y <- test$Age
+        x <- test$ER.Status
+        fit <- lm(y ~ x)
+        plot(fit)
     })
+    
+    output$txtout <- renderText({
+       paste0(input$num1, input$num2, input$num3)
+    })
+    
+    
 }
 
 
