@@ -5,8 +5,8 @@ account: jfan
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 2453746
-bundleId: 3270126
+bundleId: 3270609
 url: https://jfan.shinyapps.io/machinelearningwebsite_brennerlab/
-when: 1592193370.59063
+when: 1592203300.99062
 asMultiple: FALSE
 asStatic: FALSE

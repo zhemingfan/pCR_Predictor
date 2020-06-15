@@ -22,8 +22,8 @@ ui <- fluidPage(
     
     # Navbar Panel
     navbarPage(
-        "App",
-        tabPanel("NavBar1",
+        "Models",
+        tabPanel("Machine Learning Predictor",
             # Show a plot of the generated distribution
             sidebarPanel(
                 tags$h5("Input:"),
@@ -38,8 +38,8 @@ ui <- fluidPage(
                 textOutput("txtout")
             )
         ),
-        tabPanel("NavBar2", "This panel is blank"),
-        tabPanel("NavBar3", "This panel is blank")
+        tabPanel("Literature", "This panel is blank"),
+        tabPanel("Literature and Expert", "This panel is blank")
        
         )
  )
